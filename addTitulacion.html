@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>agregar Titulacion</title>
+</head>
+<body>
+    <h1>Area de Titulación</h1>
+    <form action="http://localhost/titulo" method="post">
+        <p>
+            <label>Nombre del usuario</label>
+            <select id="nombreUsuario" name="area"></select>
+        </p>
+        <p>
+            <label>Institución</label>
+            <select id="institucion" name="area"></select>
+        </p>
+        <p>
+            <label>Area Titulación</label>
+            <select id="area" name="area"></select>
+        </p>
+        <p>
+            <input type="submit" class="btn btn-primary" value="Agregar">
+        </p>
+     
+    </form>
+    <button class="btn btn-success" id="btnPersonal"onclick="window.location.href='consultaDatos.html'">Consultar Personal</button>    
+       
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+    <script>
+        $(document).ready(function(){
+            
+            $.getJSON("http://localhost/user",function(data){
+                let select = '';
+                 $.each(data, function (key, value) {
+                    select +="<option value="+ value.cod_personal +">"+ value.per_nom1+" "+value.per_apellido1 +"</option>"
+                    $('#nombreUsuario').append(select);
+       
+                });
+            });
+
+            $.getJSON("http://localhost/instituto_titulo",function(data){
+                let select = '';
+                 $.each(data, function (key, value) {
+                    select +="<option value="+ value.cod_instituto +">"+ value.nom_institucion+"</option>"
+                    $('#institucion').append(select);
+       
+                });
+            });
+
+            $.getJSON("http://localhost/logros",function(data){
+                let select = '';
+                 $.each(data, function (key, value) {
+                    select +="<option value="+ value.cod_logro_academico +">"+ value.titulo_programa +"</option>"
+                    $('#area').append(select);
+       
+                });
+            });
+
+            
+
+
+        });
+
+                
+          
+    </script>
+    
+</body>
+</html>l

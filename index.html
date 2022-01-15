@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizacion Logros personales</title>
+</head>
+<body>
+    <form action="http://localhost/API" method="post">
+        <p>
+            <label for="primerNombre">Primer Nombre</label>
+            <input class="form-control" name="primerNombre" id="primerNombre" type="text">
+        </p>
+        <p>
+            <label for="segundoNombre">Segundo Nombre</label>
+            <input class="form-control" name="segundoNombre" id="segundoNombre" type="text">
+        </p>
+        <p>
+            <label for="primerApellido">Primer Apellido</label>
+            <input class="form-control" name="primerApellido" id="primerApellido" type="text">
+        </p>
+        <p>
+            <label for="segundoApellido">Segundo Apellido</label>
+            <input class="form-control" name="segundoApellido" id="segundoApellido" type="text">
+        </p>
+
+        <p>
+            <label for="fecNacimiento">Primer Nombre</label>
+            <input class="form-control" name="fecNacimiento" id="fecNacimiento" type="date">
+        </p>
+        <p>
+            <input type="submit" class="btn btn-primary" value="Agregar">
+        </p>
+        
+    </form>
+    <button class="btn btn-success" id="btnConsulta" onclick="window.location.href='consultaDatos.html'">Consultar Personal</button>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+    <script>
+        $(document).ready(function(){
+
+            /*$('#btnConsulta').on("click",function(e){
+                e.preventDefault()
+                alet("accediendo a la informacion")
+                location.href = "consultaDatos.html"
+                
+            });*/
+
+        })
+    </script>
+</body>
+</html>

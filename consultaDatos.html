@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>consulta personal</title>
+</head>
+<body>
+    <h1>Consulta de usuarios</h1>
+    <table id='table' border="1">
+        <tr>
+            <th>Codigo Personal</th>
+            <th>Primer Nombre</th>
+            <th>Segundo Nombre</th>
+            <th>Primer Apellido</th>
+            <th>Segundo Apellido</th>
+            <th>Fecha de Nacimiento</th>
+        </tr>
+        
+    </table>
+
+    <br>
+    <table>
+        <tr>
+            <td>
+                <input type="button" class="btn btn-primary" id="btnTitulacion"  value="Agregar/consultar Titulacion">
+            </td>
+            <td>
+                <input type="button" class="btn btn-primary" id="btnLogro" onclick="window.location.href='addDesempenio.html'" value="Agregar/consultar Logro Academico">
+            </td>
+        </tr>
+    </table>   
+    
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+    <script>
+        $(document).ready(function(){
+            
+            $.getJSON("http://localhost/user",function(data){
+                var tabla = '';
+                console.log(data)
+                $.each(data, function (key, value) {
+
+                    tabla += '<tr>';
+                    tabla += '<td>' + 
+                    value.cod_personal + '</td>';
+                      
+                    tabla += '<td>' + 
+                    value.per_nom1 + '</td>';
+
+                    tabla += '<td>' + 
+                    value.per_nom2 + '</td>';
+
+                    tabla += '<td>' + 
+                    value.per_apellido1 + '</td>';
+
+                    tabla += '<td>' + 
+                    value.per_apellido2 + '</td>';
+
+
+                    tabla += '<td>' + 
+                    value.fec_nacimiento + '</td></tr>';
+                        
+                        
+                });
+
+ 
+            $('#table').append(tabla);
+        });
+    });
+
+                
+          
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,26 @@
+{
+  "name": "pruebasenacyt",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mmynor97/pruebaSenacyt.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mmynor97/pruebaSenacyt/issues"
+  },
+  "homepage": "https://github.com/mmynor97/pruebaSenacyt#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.2",
+    "mariadb": "^2.5.5",
+    "nodemon": "^2.0.15"
+  }
+}

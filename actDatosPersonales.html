@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualizacion de datos</title>
+</head>
+<body>
+    <h1>Actualizacion de datos personales</h1>
+    <form action="http://localhost/updPersonal" method="post">
+        <p>
+            <label>Nombre del usuario</label>
+            <select id="nombreUsuario" name="area"></select>
+        </p>
+        <p>
+            <label>Seleccion datos a modificar</label>
+            <select  id="area" name="area">
+                <option value="1">Primer Nombre</option>
+                <option value="2">segundo Nombre</option>
+                <option value="3">Primer Apellido</option>
+                <option value="4">segundo Apellido</option>
+
+            </select>
+        </p>
+        <p>
+            <label for="actu">actualizar dato</label>
+            <input class="form-control" name="actu" id="actu" type="text">
+        </p>
+        <input type="submit" class="btn btn-primary" value="Actualizar">
+    </form>
+    <h1>Actualizacion de areas de desempenio</h1>
+    <form action="http://localhost/updLogro" method="post">
+        <p>
+            <label>Nombre del usuario</label>
+            <select id="nombreUsuario1" name="area1"></select>
+        </p>
+        <p>
+            <label>Area de desempeño que desea cambiar</label>
+            <select id="area1" name="area1"></select>
+        </p>
+        <p>
+            <label>Area de desempeño a actualizar</label>
+            <select id="area2" name="area1"></select>
+        </p>
+        <input type="submit" class="btn btn-primary" value="actualizar">
+    </form> 
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+        <script>
+            $(document).ready(function(){
+                
+                $.getJSON("http://localhost/user",function(data){
+                    let select = '';
+                     $.each(data, function (key, value) {
+                        select +="<option value="+ value.cod_personal +">"+ value.per_nom1+" "+value.per_apellido1 +"</option>"
+                        $('#nombreUsuario').append(select);
+           
+                    });
+                });
+
+                $.getJSON("http://localhost/user",function(data){
+                    let select = '';
+                     $.each(data, function (key, value) {
+                        select +="<option value="+ value.cod_personal +">"+ value.per_nom1+" "+value.per_apellido1 +"</option>"
+                        $('#nombreUsuario1').append(select);
+           
+                    });
+                });
+
+                $.getJSON("http://localhost/area_desempenio",function(data){
+                let select = '';
+                 $.each(data, function (key, value) {
+                    select +="<option value="+ value.cod_area_desempenio +">"+ value.nom_area_desempenio +"</option>"
+                    $('#area1').append(select);
+       
+                });
+            });
+
+            $.getJSON("http://localhost/area_desempenio",function(data){
+                let select = '';
+                 $.each(data, function (key, value) {
+                    select +="<option value="+ value.cod_area_desempenio +">"+ value.nom_area_desempenio +"</option>"
+                    $('#area2').append(select);
+       
+                });
+            });
+
+            });
+    
+                    
+              
+        </script>   
+</body>
+</html>
